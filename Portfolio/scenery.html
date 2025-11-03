@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Gallery - Personal Profile</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<!-- Mobile Menu Toggle Button -->
+	<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">☰</button>
+	<!-- Top Info Bar -->
+	<div class="top-info-bar">
+		<div class="top-info-left">
+			<p>Welcome to my personal world! I am unique, like a different firework</p>
+		</div>
+		<div class="top-info-right">
+			<audio controls>
+				<source src="./images/童话.mp3" type="audio/mpeg">
+				Your browser does not support audio playback.
+			</audio>
+		</div>
+	</div>
+
+	<!-- Main Container -->
+	<div class="main-container">
+		<!-- Left Navigation Menu -->
+		<nav class="sidebar">
+			<h3 class="nav-title">Personal Profile</h3>
+			<ul class="nav-menu">
+				<li class="nav-item">
+					<a href="index.html" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item">
+					<a href="history.html" class="nav-link">Education</a>
+				</li>
+				<li class="nav-item">
+					<a href="experience.html" class="nav-link">Experience</a>
+				</li>
+				<li class="nav-item">
+					<a href="achievements.html" class="nav-link">Achievements</a>
+				</li>
+				<li class="nav-item active">
+					<a href="scenery.html" class="nav-link">My Gallery</a>
+				</li>
+				<li class="nav-item">
+					<a href="celebrities.html" class="nav-link">Skills</a>
+				</li>
+				<li class="nav-item">
+					<a href="contact.html" class="nav-link">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Main Content Area -->
+		<main class="main-content">
+			<!-- Gallery Section -->
+			<section class="story-section">
+				<h2 class="section-title">My Gallery</h2>
+				<div class="attractions-grid">
+					<div class="attraction-item">
+						<img src="images/33.png" alt="Gallery Image">
+					</div>
+					<div class="attraction-item">
+						<img src="images/10.png" alt="Gallery Image">
+					</div>
+					<div class="attraction-item">
+						<img src="images/22.png" alt="Gallery Image">
+					</div>
+					<div class="attraction-item">
+						<img src="images/2.png" alt="Gallery Image">
+					</div>
+					<div class="attraction-item">
+						<img src="images/3.png" alt="Gallery Image">
+					</div>
+					<div class="attraction-item">
+						<img src="images/6.png" alt="Gallery Image">
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<p>Copyright © ***</p>
+	</footer>
+
+	<script>
+		// Mobile Menu Toggle
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+			const sidebar = document.querySelector('.sidebar');
+			
+			if (mobileMenuToggle && sidebar) {
+				// On mobile, sidebar should be HIDDEN by default
+				if (window.innerWidth <= 768) {
+					sidebar.classList.add('mobile-hidden');
+					mobileMenuToggle.textContent = '☰';
+				}
+				
+				mobileMenuToggle.addEventListener('click', function() {
+					sidebar.classList.toggle('mobile-hidden');
+					this.textContent = sidebar.classList.contains('mobile-hidden') ? '☰' : '✕';
+				});
+
+				// Close menu when clicking outside on mobile
+				document.addEventListener('click', function(event) {
+					if (window.innerWidth <= 768) {
+						if (!sidebar.contains(event.target) && 
+							!mobileMenuToggle.contains(event.target) &&
+							!sidebar.classList.contains('mobile-hidden')) {
+							sidebar.classList.add('mobile-hidden');
+							mobileMenuToggle.textContent = '☰';
+						}
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

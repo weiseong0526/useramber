@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Work Experience - Personal Profile</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<!-- Mobile Menu Toggle Button -->
+	<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">☰</button>
+	<!-- Top Info Bar -->
+	<div class="top-info-bar">
+		<div class="top-info-left">
+			<p>Welcome to my personal world! I am unique, like a different firework</p>
+		</div>
+		<div class="top-info-right">
+			<audio controls>
+				<source src="./images/童话.mp3" type="audio/mpeg">
+				Your browser does not support audio playback.
+			</audio>
+		</div>
+	</div>
+
+	<!-- Main Container -->
+	<div class="main-container">
+		<!-- Left Navigation Menu -->
+		<nav class="sidebar">
+			<h3 class="nav-title">Personal Profile</h3>
+			<ul class="nav-menu">
+				<li class="nav-item">
+					<a href="index.html" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item">
+					<a href="history.html" class="nav-link">Education</a>
+				</li>
+				<li class="nav-item">
+					<a href="experience.html" class="nav-link">Experience</a>
+				</li>
+				<li class="nav-item">
+					<a href="achievements.html" class="nav-link">Achievements</a>
+				</li>
+				<li class="nav-item">
+					<a href="scenery.html" class="nav-link">My Gallery</a>
+				</li>
+				<li class="nav-item">
+					<a href="celebrities.html" class="nav-link">Skills</a>
+				</li>
+				<li class="nav-item">
+					<a href="contact.html" class="nav-link">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Main Content Area -->
+		<main class="main-content">
+			<!-- Work Experience Section -->
+			<section class="story-section">
+				<h2 class="section-title">Work Experience</h2>
+				
+				<div class="experience-timeline">
+					<div class="timeline-item-experience">
+						<div class="timeline-icon">
+							<div class="icon-circle">💼</div>
+						</div>
+						<div class="timeline-content-experience">
+							<div class="experience-header">
+								<h3>Job Title / Position</h3>
+								<span class="experience-company">Company Name</span>
+								<span class="experience-period">Jan 2023 - Present</span>
+							</div>
+							<p class="experience-description">Brief description of your role, responsibilities, and key achievements. Highlight your contributions and impact in this position.</p>
+							<ul class="experience-responsibilities">
+								<li>Key responsibility or achievement point 1</li>
+								<li>Key responsibility or achievement point 2</li>
+								<li>Key responsibility or achievement point 3</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="timeline-item-experience">
+						<div class="timeline-icon">
+							<div class="icon-circle">💼</div>
+						</div>
+						<div class="timeline-content-experience">
+							<div class="experience-header">
+								<h3>Previous Job Title</h3>
+								<span class="experience-company">Previous Company</span>
+								<span class="experience-period">Jun 2021 - Dec 2022</span>
+							</div>
+							<p class="experience-description">Description of your role and accomplishments in this position. Showcase your growth and learning experiences.</p>
+							<ul class="experience-responsibilities">
+								<li>Major project or achievement</li>
+								<li>Skill development or contribution</li>
+								<li>Team collaboration or leadership experience</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="timeline-item-experience">
+						<div class="timeline-icon">
+							<div class="icon-circle">💼</div>
+						</div>
+						<div class="timeline-content-experience">
+							<div class="experience-header">
+								<h3>Internship / Entry Position</h3>
+								<span class="experience-company">Company Name</span>
+								<span class="experience-period">Jan 2020 - May 2021</span>
+							</div>
+							<p class="experience-description">Your first professional experience. Describe what you learned and how it shaped your career path.</p>
+							<ul class="experience-responsibilities">
+								<li>Learning outcomes</li>
+								<li>Projects completed</li>
+								<li>Skills acquired</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<p>Copyright © ***</p>
+	</footer>
+
+	<script>
+		// Mobile Menu Toggle
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+			const sidebar = document.querySelector('.sidebar');
+			
+			if (mobileMenuToggle && sidebar) {
+				// On mobile, sidebar should be HIDDEN by default
+				if (window.innerWidth <= 768) {
+					sidebar.classList.add('mobile-hidden');
+					mobileMenuToggle.textContent = '☰';
+				}
+				
+				mobileMenuToggle.addEventListener('click', function() {
+					sidebar.classList.toggle('mobile-hidden');
+					this.textContent = sidebar.classList.contains('mobile-hidden') ? '☰' : '✕';
+				});
+
+				// Close menu when clicking outside on mobile
+				document.addEventListener('click', function(event) {
+					if (window.innerWidth <= 768) {
+						if (!sidebar.contains(event.target) && 
+							!mobileMenuToggle.contains(event.target) &&
+							!sidebar.classList.contains('mobile-hidden')) {
+							sidebar.classList.add('mobile-hidden');
+							mobileMenuToggle.textContent = '☰';
+						}
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
+
