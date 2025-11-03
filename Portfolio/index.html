@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Personal Profile</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="js/swiper.min.css">
+</head>
+<body>
+	<!-- Mobile Menu Toggle Button -->
+	<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">☰</button>
+	<!-- Top Info Bar -->
+	<div class="top-info-bar">
+		<div class="top-info-left">
+			<p class="animated-welcome">Welcome to my world! This is my personal website</p>
+		</div>
+		<div class="top-info-right">
+			<audio controls>
+				<source src="./images/童话.mp3" type="audio/mpeg">
+				Your browser does not support audio playback.
+			</audio>
+		</div>
+	</div>
+
+	<!-- Main Container -->
+	<div class="main-container">
+		<!-- Left Navigation Menu -->
+		<nav class="sidebar">
+			<h3 class="nav-title">Personal Profile</h3>
+			<ul class="nav-menu">
+				<li class="nav-item active">
+					<a href="index.html" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item">
+					<a href="history.html" class="nav-link">Education</a>
+				</li>
+				<li class="nav-item">
+					<a href="experience.html" class="nav-link">Experience</a>
+				</li>
+				<li class="nav-item">
+					<a href="achievements.html" class="nav-link">Achievements</a>
+				</li>
+				<li class="nav-item">
+					<a href="scenery.html" class="nav-link">My Gallery</a>
+				</li>
+				<li class="nav-item">
+					<a href="celebrities.html" class="nav-link">Skills</a>
+				</li>
+				<li class="nav-item">
+					<a href="contact.html" class="nav-link">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Main Content Area -->
+		<main class="main-content">
+		<!-- Banner Slider Section -->
+		<section class="story-section">
+			<div class="swiper-container banner-swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="slide-bg" style="background: url('images/66.png') no-repeat center center; background-size: cover;"></div>
+						<div class="banner-overlay">
+							<h1 class="banner-title">Growth is a brave adventure; only by constantly trying can we discover a new self</h1>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="slide-bg" style="background: url('images/5.jpg') no-repeat center center; background-size: cover;"></div>
+						<div class="banner-overlay">
+							<h1 class="banner-title">Growth is learning to accept your imperfections and striving to become better</h1>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="slide-bg" style="background: url('images/bg3.jpg') no-repeat center center; background-size: cover;"></div>
+						<div class="banner-overlay">
+							<h1 class="banner-title">May we all continue to grow and eventually become a more mature and excellent version of ourselves</h1>
+						</div>
+					</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Add Navigation Buttons -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</section>
+
+		<!-- Personal Introduction Section -->
+		<section class="story-section">
+			<h2 class="section-title">About Me</h2>
+			<div class="story-content">
+				<div class="story-text">
+					<p>I am a professional who loves work and is proactive, with a solid professional foundation and rich practical experience. In my work, I always maintain a rigorous attitude and innovative thinking, committed to continuous learning and growth in my professional field.</p>
+					<p>I have good communication skills and team collaboration spirit, able to quickly adapt to new environments, and skilled at identifying and solving problems. In projects, I pay attention to details, pursue excellence, and always maintain high standards of work quality.</p>
+					<p>I believe that through continuous learning and practice, I can achieve better results in my professional field. I will continue to work hard to improve my professional skills and create greater value for the team and company.</p>
+					<a href="#" class="view-more">Read More ></a>
+				</div>
+				<div class="story-images">
+					<div class="image-item">
+						<img src="images/8.jpg" alt="Personal Style">
+						<div class="image-caption">Personal Style</div>
+						<div class="image-subtitle">My Style</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		</main>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<p>Copyright © ***</p>
+	</footer>
+
+	<!-- Swiper JS -->
+	<script src="js/swiper.min.js"></script>
+	<script>
+		// Initialize Banner Swiper
+		var bannerSwiper = new Swiper('.banner-swiper', {
+			loop: true, // Loop playback
+			autoplay: {
+				delay: 3000, // Switch every 3 seconds
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.banner-swiper .swiper-button-next',
+				prevEl: '.banner-swiper .swiper-button-prev',
+			},
+		});
+
+		// Mobile Menu Toggle
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+			const sidebar = document.querySelector('.sidebar');
+			
+			if (mobileMenuToggle && sidebar) {
+				mobileMenuToggle.addEventListener('click', function() {
+					sidebar.classList.toggle('mobile-hidden');
+					this.textContent = sidebar.classList.contains('mobile-hidden') ? '☰' : '✕';
+				});
+
+				// Close menu when clicking outside on mobile
+				document.addEventListener('click', function(event) {
+					if (window.innerWidth <= 768) {
+						if (!sidebar.contains(event.target) && 
+							!mobileMenuToggle.contains(event.target) &&
+							!sidebar.classList.contains('mobile-hidden')) {
+							sidebar.classList.add('mobile-hidden');
+							mobileMenuToggle.textContent = '☰';
+						}
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
